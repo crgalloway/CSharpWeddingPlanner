@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login/Reg</title>
+</head>
+<body>
+    <div>
+        @model WeddingPlanner.Models.UserViewModel
+        <h1>Registration</h1>
+        <form asp-controller="Login" asp-action="Registration" method="POST">
+            <table>
+                <tr>
+                    <td><label asp-for="first_name"></label></td>
+                    <td><input asp-for="first_name"></td>
+                    <td><span asp-validation-for="first_name"></span></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="last_name"></label></td>
+                    <td><input asp-for="last_name"></td>
+                    <td><span asp-validation-for="last_name"></span></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="email"></label></td>
+                    <td><input asp-for="email"></td>
+                    <td><span asp-validation-for="email"></span></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="password"></label></td>
+                    <td><input type="password" asp-for="password"></td>
+                    <td><span asp-validation-for="password"></span></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="passwordconfirmation"></label></td>
+                    <td><input type="password" asp-for="passwordconfirmation"></td>
+                    <td><span asp-validation-for="passwordconfirmation"></span></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Register"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div>
+        <h1>Login</h1>
+        <form asp-controller="Login" asp-action="Login" method="POST">
+            <table>
+                <tr>
+                    <td><label asp-for="email"></label></td>
+                    <td><input asp-for="email"></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="password"></label></td>
+                    <td><input type="password" asp-for="password"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Login"></td>
+                    <td>@ViewBag.Error</td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

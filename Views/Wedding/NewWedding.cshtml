@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Plan Your Wedding</h1>
+    <a href="Dashboard">Dashboard</a>
+    <a href="">Log Out</a>
+    @model WeddingPlanner.Models.WeddingViewModel
+    <form asp-controller="Wedding" asp-action="AddWedding" method="POST">
+        <table>
+            <tr>
+                <td><label asp-for="wedder_one"></label></td>
+                <td><input asp-for="wedder_one"></td>
+                <td><span asp-validation-for="wedder_one"></span></td>
+            </tr>
+            <tr>
+                <td><label asp-for="wedder_two"></label></td>
+                <td><input asp-for="wedder_two"></td>
+                <td><span asp-validation-for="wedder_two"></span></td>
+            </tr>
+            <tr>
+                <td><label asp-for="date"></label></td>
+                <td><input asp-for="date"></td>
+                <td><span asp-validation-for="date"></span></td>
+            </tr>
+            <tr>
+                <td><label asp-for="address"></label></td>
+                <td><input asp-for="address"></td>
+                <td><span asp-validation-for="address"></span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Create"></td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>

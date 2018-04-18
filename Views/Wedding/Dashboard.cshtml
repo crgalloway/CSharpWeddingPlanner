@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welome to the Wedding Planner</h1>
+    <a href="">Log Out</a>
+    <table>
+        <thead>
+            <th>Wedding</th>
+            <th>Date</th>
+            <th>Guest</th>
+            <th>Action</th>
+        </thead>
+        @foreach(var wedding in ViewBag.allWeddings)
+        {
+            <tr>
+                <td>@wedding.wedder_one &amp; @wedding.wedder_two</td>
+                <td>@wedding.date.ToString("MMM d, yyyy")</td>
+                <td>@wedding.Guests.Count</td>
+                <td>
+                    @if(wedding.createdbyid == ViewBag.activeId)
+                    {
+                        <a href="remove/wedding/@wedding.weddingid">Delete</a>
+                    }
+                    else
+                    {
+                        bool attending = false;
+                        @foreach(var guest in wedding.Guests)
+                        {
+                            @if(guest.guestid == ViewBag.activeId)
+                            {
+                                attending = true;
+                                break;
+                            }
+                        }
+                        if(attending)
+                        {
+                            <a href="remove/guest/@wedding.weddingid">Un-RSVP</a>
+                        }
+                        else
+                        {
+                            <a href="add/guest/@wedding.weddingid">RSVP</a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+    <a href="/newWedding"><button>New Wedding</button></a>
+</body>
+</html>
